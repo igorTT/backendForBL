@@ -11,7 +11,9 @@ import { SignInCredentialsDto } from './dto/signin-credentials.dto';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async signUp(
+    authCredentialsDto: AuthCredentialsDto,
+  ): Promise<{ message: string }> {
     const { email, password, username } = authCredentialsDto;
 
     const user = new User();
@@ -22,6 +24,7 @@ export class UserRepository extends Repository<User> {
 
     try {
       await user.save();
+      return { message: user.email };
     } catch (error) {
       if (error.code === 11000) {
         throw new ConflictException('Invalid credentials');

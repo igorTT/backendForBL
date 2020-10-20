@@ -12,7 +12,7 @@ import { User } from './auth/user.entity';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://localhost/blocklight',
+      url: process.env.MONGO_URI,
       synchronize: true,
       useUnifiedTopology: true,
       entities: [Integrations, User],
