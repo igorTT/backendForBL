@@ -1,12 +1,9 @@
-import { Column, Entity, ObjectIdColumn, PrimaryColumn } from 'typeorm';
+import { Column, Entity, ObjectIdColumn } from 'typeorm';
 
 @Entity()
 export class Integrations {
   @ObjectIdColumn()
   _id: string;
-
-  @PrimaryColumn()
-  id: string;
 
   @Column()
   name: string;
