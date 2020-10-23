@@ -4,10 +4,10 @@ import { IsMongoId } from 'class-validator';
 @InputType()
 export class AssignUserToIntegrationInput {
   @IsMongoId()
-  @Field(type => ID)
+  @Field(() => ID)
   integrationId: string;
 
   @IsMongoId()
-  @Field(type => [ID])
+  @Field(() => [ID])
   userIds: string[];
 }

@@ -38,7 +38,6 @@ export class IntegrationsService {
     integrationId: string,
     userIds: string[] = [],
   ): Promise<Integrations> {
-    console.log(integrationId);
     const integration = await this.integrationsRepository.findOne(
       integrationId,
     );

@@ -8,12 +8,12 @@ import { IntegrationsType } from './integrations.type';
 export class IntegrationsResolver {
   constructor(private integrationsService: IntegrationsService) {}
 
-  @Query(returns => [IntegrationsType])
+  @Query(() => [IntegrationsType])
   integrations() {
     return this.integrationsService.integrations();
   }
 
-  @Query(returns => IntegrationsType)
+  @Query(() => IntegrationsType)
   getIntegrationByName(@Args('name') name: string) {
     return this.integrationsService.getIntegrationByName(name);
   }
