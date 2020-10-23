@@ -4,7 +4,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 @ObjectType('Integrations')
 export class IntegrationsType {
   @Field(type => ID)
-  id: string;
+  _id: string;
 
   @Field()
   name: string;
