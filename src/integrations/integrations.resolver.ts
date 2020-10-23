@@ -4,7 +4,7 @@ import { CreateIntegrationInput } from './integrations.input';
 import { IntegrationsService } from './integrations.service';
 import { IntegrationsType } from './integrations.type';
 
-@Resolver(of => IntegrationsType)
+@Resolver(() => IntegrationsType)
 export class IntegrationsResolver {
   constructor(private integrationsService: IntegrationsService) {}
 
@@ -18,7 +18,7 @@ export class IntegrationsResolver {
     return this.integrationsService.getIntegrationByName(name);
   }
 
-  @Mutation(returns => IntegrationsType)
+  @Mutation(() => IntegrationsType)
   createIntegration(
     @Args('createIntegrationInput')
     createIntegrationInput: CreateIntegrationInput,
@@ -26,7 +26,7 @@ export class IntegrationsResolver {
     return this.integrationsService.createIntegration(createIntegrationInput);
   }
 
-  @Mutation(returns => IntegrationsType)
+  @Mutation(() => IntegrationsType)
   assignUserToIntegration(
     @Args('assignUserToIntegrationInput')
     assignUserToIntegrationInput: AssignUserToIntegrationInput,

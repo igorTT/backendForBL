@@ -6,10 +6,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Integrations } from './integrations/integrations.entity';
 import { IntegrationsModule } from './integrations/integrations.module';
 
-import { AuthModule } from './auth/auth.module';
-import { User } from './auth/user.entity';
+// import { AuthModule } from './auth/auth.module';
+// import { User } from './auth/user.entity';
 
-import { UserGql } from './user/user.entity';
+import { User } from './user/user.entity';
 import { UserModule } from './user/user.module';
 
 @Module({
@@ -20,12 +20,12 @@ import { UserModule } from './user/user.module';
       url: process.env.MONGO_URI,
       synchronize: true,
       useUnifiedTopology: true,
-      entities: [Integrations, User, UserGql],
+      entities: [Integrations, User],
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
     }),
-    AuthModule,
+    // AuthModule,
     IntegrationsModule,
     UserModule,
   ],

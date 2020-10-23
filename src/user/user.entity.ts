@@ -1,7 +1,8 @@
-import { Column, Entity, ObjectIdColumn } from 'typeorm';
+import { Column, Entity, ObjectIdColumn, Unique } from 'typeorm';
 
 @Entity()
-export class UserGql {
+@Unique(['email'])
+export class User {
   @ObjectIdColumn()
   _id: string;
 
@@ -10,4 +11,19 @@ export class UserGql {
 
   @Column()
   email: string;
+
+  @Column()
+  password: string;
+
+  @Column()
+  phoneNumber?: string;
+
+  @Column()
+  location?: string;
+
+  @Column()
+  jobTitle?: string;
+
+  @Column()
+  integrations: string[];
 }
